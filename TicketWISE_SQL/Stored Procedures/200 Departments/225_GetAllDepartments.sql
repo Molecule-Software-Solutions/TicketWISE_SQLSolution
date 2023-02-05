@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE [dbo].[225_GetAllDepartments]
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM Departments; 
+END

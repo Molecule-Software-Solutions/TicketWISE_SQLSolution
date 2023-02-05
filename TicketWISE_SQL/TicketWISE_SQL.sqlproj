@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>TicketWISE_SQL</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{546299dc-dbb2-4d4c-9a12-5de9a9fae045}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>TicketWISE_SQL</RootNamespace>
+    <AssemblyName>TicketWISE_SQL</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Foreign Key References" />
+    <Folder Include="Foreign Key References\Tickets" />
+    <Folder Include="Foreign Key References\Users" />
+    <Folder Include="Tables" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Stored Procedures\100 Users" />
+    <Folder Include="Stored Procedures\200 Departments" />
+    <Folder Include="Stored Procedures\300 Projects" />
+    <Folder Include="Stored Procedures\400 Security Levels" />
+    <Folder Include="Stored Procedures\500 Status Types" />
+    <Folder Include="Stored Procedures\600 Ticket Types" />
+    <Folder Include="Stored Procedures\700 Tickets" />
+    <Folder Include="Administrative Procedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Foreign Key References\Tickets\FK_Ticket_Project_Reference.sql" />
+    <Build Include="Foreign Key References\Tickets\FK_Ticket_Status_Reference.sql" />
+    <Build Include="Foreign Key References\Tickets\FK_Ticket_TicketType_Reference.sql" />
+    <Build Include="Foreign Key References\Tickets\FK_Ticket_UserId_Reference.sql" />
+    <Build Include="Foreign Key References\Users\FK_User_Department_Reference.sql" />
+    <Build Include="Foreign Key References\Users\FK_User_SecurityLevel_Reference.sql" />
+    <Build Include="Tables\Departments.sql" />
+    <Build Include="Tables\Projects.sql" />
+    <Build Include="Tables\SecurityLevels.sql" />
+    <Build Include="Tables\StatusTypes.sql" />
+    <Build Include="Tables\Tickets.sql" />
+    <Build Include="Stored Procedures\100 Users\125_GetAllUsers.sql" />
+    <Build Include="Stored Procedures\100 Users\126_GetUserById.sql" />
+    <Build Include="Stored Procedures\100 Users\127_GetUserByPartialName.sql" />
+    <Build Include="Stored Procedures\100 Users\175_DeleteUserById.sql" />
+    <Build Include="Stored Procedures\100 Users\100_CreateUser.sql" />
+    <Build Include="Stored Procedures\100 Users\150_UpdateUserById.sql" />
+    <Build Include="Stored Procedures\200 Departments\200_CreateDepartment.sql" />
+    <Build Include="Stored Procedures\200 Departments\225_GetAllDepartments.sql" />
+    <Build Include="Stored Procedures\200 Departments\226_GetDepartmentById.sql" />
+    <Build Include="Stored Procedures\200 Departments\250_UpdateDepartment.sql" />
+    <Build Include="Stored Procedures\200 Departments\275_DeleteDepartment.sql" />
+    <Build Include="Stored Procedures\300 Projects\300_CreateProject.sql" />
+    <Build Include="Stored Procedures\300 Projects\325_GetAllProjects.sql" />
+    <Build Include="Stored Procedures\300 Projects\326_GetProjectById.sql" />
+    <Build Include="Stored Procedures\300 Projects\350_UpdateProject.sql" />
+    <Build Include="Stored Procedures\300 Projects\375_DeleteProject.sql" />
+    <Build Include="Stored Procedures\400 Security Levels\400_CreateSecurityLevel.sql" />
+    <Build Include="Stored Procedures\400 Security Levels\475_DeleteSecurityLevel.sql" />
+    <Build Include="Stored Procedures\500 Status Types\500_CreateStatusType.sql" />
+    <Build Include="Stored Procedures\500 Status Types\575_DeleteStatusType.sql" />
+    <Build Include="Stored Procedures\400 Security Levels\425_GetAllSecurityLevels.sql" />
+    <Build Include="Stored Procedures\500 Status Types\525_GetAllStatusTypes.sql" />
+    <Build Include="Stored Procedures\400 Security Levels\426_GetSecurityLevelById.sql" />
+    <Build Include="Stored Procedures\500 Status Types\526_GetStatusTypeById.sql" />
+    <Build Include="Stored Procedures\600 Ticket Types\600_CreateTicketType.sql" />
+    <Build Include="Stored Procedures\600 Ticket Types\675_DeleteTicketType.sql" />
+    <Build Include="Stored Procedures\600 Ticket Types\625_GetAllTicketTypes.sql" />
+    <Build Include="Stored Procedures\600 Ticket Types\626_GetTicketTypeById.sql" />
+    <Build Include="Stored Procedures\700 Tickets\700_CreateNewTicket.sql" />
+    <Build Include="Stored Procedures\700 Tickets\725_GetAllTickets.sql" />
+    <Build Include="Stored Procedures\700 Tickets\726_GetAllActiveTickets.sql" />
+    <Build Include="Stored Procedures\700 Tickets\727_GetAllInactiveTickets.sql" />
+    <Build Include="Stored Procedures\700 Tickets\728_GetTicketById.sql" />
+    <Build Include="Stored Procedures\700 Tickets\729_GetActiveTicketsByProjectId.sql" />
+    <Build Include="Stored Procedures\700 Tickets\730_GetInactiveTicketsByProjectId.sql" />
+    <Build Include="Stored Procedures\700 Tickets\731_GetTicketBySearchTitleAndDescription.sql" />
+    <Build Include="Stored Procedures\700 Tickets\732_GetActiveTicketsForUserId.sql" />
+    <Build Include="Stored Procedures\700 Tickets\733_GetInactiveTicketsForUserId.sql" />
+    <Build Include="Stored Procedures\700 Tickets\734_GetTicketsByTicketTypeId.sql" />
+    <Build Include="Stored Procedures\700 Tickets\750_UpdateTicketTitle.sql" />
+    <Build Include="Stored Procedures\700 Tickets\751_UpdateTicketDescription.sql" />
+    <Build Include="Stored Procedures\700 Tickets\752_UpdateTicketProject.sql" />
+    <Build Include="Stored Procedures\700 Tickets\754_UpdateTicketStatus.sql" />
+    <Build Include="Stored Procedures\700 Tickets\753_SetTicketActiveStatus.sql" />
+    <Build Include="Stored Procedures\700 Tickets\775_DeleteTicket.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\TicketTypes.sql" />
+    <Build Include="Tables\Users.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Administrative Procedures\CreateExecutorRole.sql" />
+  </ItemGroup>
+</Project>

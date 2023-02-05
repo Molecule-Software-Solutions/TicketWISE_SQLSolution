@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE [dbo].[525_GetAllStatusTypes]
+AS
+BEGIN
+SET NOCOUNT ON; 
+	SELECT * FROM [dbo].StatusTypes
+END

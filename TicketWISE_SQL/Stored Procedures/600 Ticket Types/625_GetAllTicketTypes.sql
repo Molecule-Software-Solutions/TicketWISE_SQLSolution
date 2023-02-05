@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE [dbo].[625_GetAllTicketTypes]
+AS
+BEGIN
+SET NOCOUNT ON; 
+	SELECT * FROM [dbo].TicketTypes
+END
